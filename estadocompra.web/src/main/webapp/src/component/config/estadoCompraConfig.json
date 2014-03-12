@@ -1,0 +1,9 @@
+{
+    "displayName" : "EstadoCompra",
+    "name" : "estadoCompra",
+    "templateName" : "estadoCompra",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/estadocompra.service.subsystem.web/webresources/EstadoCompra",
+    "el" : "#main"
+}

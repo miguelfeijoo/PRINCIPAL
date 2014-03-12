@@ -1,0 +1,9 @@
+{
+    "displayName" : "Direccion",
+    "name" : "direccion",
+    "templateName" : "direccion",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/direccion.service.subsystem.web/webresources/Direccion",
+    "el" : "#main"
+}

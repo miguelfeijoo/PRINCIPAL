@@ -1,0 +1,9 @@
+{
+    "displayName" : "ComponenteVentasEnLinea",
+    "name" : "componenteventasenlinea",
+    "templateName" : "componenteventasenlinea",
+    "url" : "componenteventasenlinea.html",
+    "server": "localhost:8080",
+    "context": "/componenteventasenlinea.master.service.subsystem/webresources/ComponenteVentasEnLineaMaster",
+    "el" : "#main"
+}

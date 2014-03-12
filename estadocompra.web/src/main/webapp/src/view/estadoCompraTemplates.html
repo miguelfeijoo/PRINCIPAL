@@ -1,0 +1,42 @@
+<script type="text/template" id="estadoCompraList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(estadoCompras, function(estadoCompra) { %>
+    <tr>
+		<td><%= htmlEncode(estadoCompra.getDisplay('name')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-estadoCompra-edit',{id:<%= estadoCompra.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-estadoCompra-delete',{id:<%= estadoCompra.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="estadoCompra">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-estadoCompraForm">
+    <% if(estadoCompra.id) {%>
+    <input type="hidden" name="id" value="<%= estadoCompra.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= estadoCompra.get('name') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 

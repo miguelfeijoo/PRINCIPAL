@@ -1,0 +1,48 @@
+<script type="text/template" id="direccionList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>direccion</th>
+		 <th>name</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(direccions, function(direccion) { %>
+    <tr>
+		<td><%= htmlEncode(direccion.getDisplay('direccion')) %></td>
+		<td><%= htmlEncode(direccion.getDisplay('name')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-direccion-edit',{id:<%= direccion.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-direccion-delete',{id:<%= direccion.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="direccion">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-direccionForm">
+    <% if(direccion.id) {%>
+    <input type="hidden" name="id" value="<%= direccion.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="direccion">direccion</label>
+    	<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Enter value" value="<%= direccion.get('direccion') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= direccion.get('name') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 
