@@ -38,4 +38,21 @@
     	  <module>../itemfactura.service.subsystem</module>
 		  <module>../itemfactura.service.subsystem.web</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>factura.master.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>carrito.master.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>componenteventasenlinea.master.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

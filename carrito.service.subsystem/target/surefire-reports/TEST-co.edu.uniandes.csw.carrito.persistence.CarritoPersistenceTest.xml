@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="1.957" errors="0" skipped="0" tests="5" name="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest">
+<testsuite failures="0" time="1.606" errors="0" skipped="0" tests="5" name="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Diego/Documents/ciclo2WS/build-default-product"/>
+    <property name="user.dir" value="/Users/Diego/NetBeansProjects/Ciclo2/PRINCIPAL/build-default-product"/>
     <property name="java.runtime.version" value="1.7.0_45-b18"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/endorsed"/>
@@ -62,9 +62,9 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.13" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="createCarritoTest"/>
-  <testcase time="0.067" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="getCarritosTest"/>
-  <testcase time="0.051" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="getCarritoTest"/>
-  <testcase time="0.061" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="deleteCarritoTest"/>
-  <testcase time="0.073" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="updateCarritoTest"/>
+  <testcase time="0.117" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="createCarritoTest"/>
+  <testcase time="0.072" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="getCarritosTest"/>
+  <testcase time="0.027" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="getCarritoTest"/>
+  <testcase time="0.053" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="deleteCarritoTest"/>
+  <testcase time="0.053" classname="co.edu.uniandes.csw.carrito.persistence.CarritoPersistenceTest" name="updateCarritoTest"/>
 </testsuite>
