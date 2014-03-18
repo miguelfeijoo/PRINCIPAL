@@ -155,22 +155,6 @@
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>	
-        
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>factura.master.service.subsystem</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>carrito.master.service.subsystem</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>componenteventasenlinea.master.service.subsystem</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>  
     
     </dependencies>
 </project>

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: co.edu.uniandes.csw.producto.logic.ejb.ProductoLogicServiceTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.059 sec

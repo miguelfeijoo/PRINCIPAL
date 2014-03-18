@@ -13,6 +13,12 @@ import co.edu.uniandes.csw.carrito.logic.api.ICarritoLogicService;
 @Default
 @Stateless
 @LocalBean
-public class CarritoLogicService extends _CarritoLogicService implements ICarritoLogicService {
+public class CarritoLogicService extends _CarritoLogicService implements ICarritoLogicService 
+{
+
+    public void comprarCarrito(Long id) 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
