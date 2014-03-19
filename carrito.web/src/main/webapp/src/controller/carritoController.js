@@ -18,7 +18,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             
             var self = this;
             
-            App.Delegate.UserDelegate.comprarCarrito(params.id,function(data)
+            App.Delegate.CarritoDelegate.comprarCarrito(params.id,function(data)
             {
                 alert('Comprando carrito...');
                 

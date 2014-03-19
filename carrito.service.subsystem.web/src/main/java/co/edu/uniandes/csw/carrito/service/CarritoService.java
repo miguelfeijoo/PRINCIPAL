@@ -23,11 +23,5 @@ import javax.inject.Inject;
 @Produces(MediaType.APPLICATION_JSON)
 public class CarritoService extends _CarritoService 
 {
-    @PUT
-    @Path("{id}/comprarcarrito")
-    public void comprarCarrito(@PathParam("id") Long id) 
-    {
-        carritoLogicService.comprarCarrito(id);
-    }
-
+    
 }

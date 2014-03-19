@@ -8,6 +8,10 @@ import javax.enterprise.inject.Default;
 @Default
 @Stateless
 @LocalBean
-public class CarritoMasterLogicService extends _CarritoMasterLogicService implements ICarritoMasterLogicService {
-
+public class CarritoMasterLogicService extends _CarritoMasterLogicService implements ICarritoMasterLogicService 
+{
+    public void comprarCarrito(Long id) 
+    {
+        
+    }
 }
