@@ -5,7 +5,7 @@ define(['delegate/_carritoDelegate'], function() {
         {
 	    console.log('#delegate# comprarcarrito: '+id);
             $.ajax({
-	          url: '/carrito.master.service.subsystem/webresources/Carrito/'+id+'/comprarcarrito',
+	          url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+id+'/comprarcarrito',
 	          type: 'PUT',
 	          data: {},
 	          contentType: 'application/json'
@@ -14,6 +14,6 @@ define(['delegate/_carritoDelegate'], function() {
 	      },this)).error(_.bind(function(data){
 	    	  callbackError(data);
 	      },this));
-          }
+        }
     });
 });

@@ -4,7 +4,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
         postInit: function (options)
         {
             var self = this;
-            this.selection = App.Controller.SelectionController ({});
+            //this.selection = App.Controller.SelectionController ({});
             
             Backbone.on('comprar-carrito',function(params)
             {
