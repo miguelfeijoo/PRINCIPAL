@@ -54,11 +54,25 @@
                 <input type="hidden" name="id" value="<%= carrito.id %>"/>
             <% }%>
             <div class="form-group" >
-                <label for="seleccionFormaPago">name</label>
+                <label for="seleccionFormaPago">Seleccione su forma de pago:</label>
                 <select name="formaPago" placeholder="Seleccione su forma de pago"/>
                     <option value="tarjetaCredito">Tarjeta de credito</option>
                     <option value="payPal">PayPal</option>
                 </select>
+               
+                <label for="valorFormaPago">Ingrese su número de tarjeta de crédito o cuenta de paypal:</label>
+                <input type="text" class="form-control" id="valorFormaPago" name="valorFormaPago" placeholder="NumeroTarjeta/Cuenta PayPal" value="NumeroTarjeta/Cuenta PayPal"/>	
+            </div>
+            <div class="form-group" >
+                <label for="seleccionDirecciones">Seleccione la dirección de envío:</label>
+                <select name="direccion" placeholder="Seleccione la dirección de envío:"/>
+                    <option value="Calle 85 No 15-42, Bogotá, Colombia">Tarjeta de credito</option>
+                    <option value="254 Harbor Dr. KeyBiscayne, Fl, United States ">PayPal</option>
+                </select>
+            </div>
+            
+            <div class="form-group" >
+                <a class="btn" onclick="Backbone.trigger('comprar-carrito',{id:<%= carrito.id%>})">Comprar carrito</a>                
             </div>
         </form>
     </div>

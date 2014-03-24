@@ -22,14 +22,14 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             
             /*App.Delegate.CarritoDelegate.comprarCarrito(params.id,function(data)
             {
-                alert('Comprando carrito...');
+                this._renderFormaComprarCarrito();
                 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
-            });*/
+            }); */  
             
-            this._renderFormaComprarCarrito();
+            this._renderFormaComprarCarrito(); //PARA PRUEBAS
         },
         
         _renderFormaComprarCarrito: function() {
