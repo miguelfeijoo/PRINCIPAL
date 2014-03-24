@@ -24,7 +24,7 @@
                             <a onclick="Backbone.trigger('<%= componentId %>-carrito-delete',{id:<%= carrito.id %>}); return false" >Delete</a> 
                         <%
                         } %>    
-                        <a class="btn" onclick="Backbone.trigger('comprar-carrito',{id:<%= carrito.id%>})">Comprar carrito!</a>
+                        <a class="btn" onclick="Backbone.trigger('comprar-carrito',{id:<%= carrito.id%>})">Comprar carrito</a>
                     </td>
                 </tr>
                 <% }); %>
@@ -42,6 +42,23 @@
             <div class="form-group" >
                 <label for="name">name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= carrito.get('name') %>"/>	
+            </div>
+        </form>
+    </div>
+</script> 
+
+<script type="text/template" id="formaComprarCarrito">
+    <div class="form-group">
+        <form role="form" id="<%= componentId %>-formaComprarCarrito">
+            <% if(carrito.id) {%>
+                <input type="hidden" name="id" value="<%= carrito.id %>"/>
+            <% }%>
+            <div class="form-group" >
+                <label for="seleccionFormaPago">name</label>
+                <select name="formaPago" placeholder="Seleccione su forma de pago"/>
+                    <option value="tarjetaCredito">Tarjeta de credito</option>
+                    <option value="payPal">PayPal</option>
+                </select>
             </div>
         </form>
     </div>
