@@ -34,8 +34,13 @@ public class CarritoMasterLogicService extends _CarritoMasterLogicService implem
             costo += 0; //OBTENER PRECIO DE LOS PRODUCTOS
         }
         
-        //APLICAR IMPUESTOS Y SHIPPING
+        costo += costo*0.16;
         
         return costo;
+    }
+
+    public void finalizarCompra(Long id) 
+    {
+        
     }
 }

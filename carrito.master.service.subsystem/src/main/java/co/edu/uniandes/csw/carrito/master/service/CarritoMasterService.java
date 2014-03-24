@@ -18,9 +18,16 @@ import javax.ws.rs.core.MediaType;
 public class CarritoMasterService extends _CarritoMasterService 
 {
     @PUT
-    @Path("{id}/comprarcarrito")
+    @Path("{id}/comprarCarrito")
     public void comprarCarrito(@PathParam("id") Long id) 
     {
         carritoLogicService.comprarCarrito(id);
+    }
+    
+    @PUT
+    @Path("{id}/finalizarCompra")
+    public void finalizarCompra(@PathParam("id") Long id) 
+    {
+        carritoLogicService.finalizarCompra(id);
     }
 }

@@ -7,10 +7,16 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             //this.selection = App.Controller.SelectionController ({});
             
             this.formaComprarCarritoTemplate = _.template($('#formaComprarCarrito').html());
+            this.compraFinalizadaTemplate = _.template($('#compraFinalizada').html());
             
             Backbone.on('comprar-carrito',function(params)
             {
                 self.comprarCarrito(params);
+            });
+            
+            Backbone.on('finalizar-compra-carrito',function(params)
+            {
+                self.finalizarCompraCarrito(params);
             });
         },
         
@@ -22,20 +28,46 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             
             /*App.Delegate.CarritoDelegate.comprarCarrito(params.id,function(data)
             {
-                this._renderFormaComprarCarrito();
+                self._renderFormaComprarCarrito(params.id);
                 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
             }); */  
             
-            this._renderFormaComprarCarrito(); //PARA PRUEBAS
+            this._renderFormaComprarCarrito(params.id); //<<--PARA PRUEBAS por lo que lo de arriba no está sirviendo
         },
         
-        _renderFormaComprarCarrito: function() {
+        finalizarCompraCarrito: function (params)
+        {
+            console.log('comprar carrito' + params.id);
+            
+            var self = this; 
+            
+            /*App.Delegate.CarritoDelegate.finalizarCompra(params.id,function(data)
+            {
+                self._renderCompraFinalizada();
+                
+            },function(data)
+            {
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
+            });*/ 
+            
+            this._renderCompraFinalizada(); //PARA PRUEBAS
+        },
+        
+        _renderFormaComprarCarrito: function(id) {
             var self = this;
             this.$el.slideUp("fast", function() {
-                self.$el.html(self.formaComprarCarritoTemplate({carritos: self.carritoModelList.models, componentId: self.componentId, showEdit : self.showEdit , showDelete : self.showDelete}));
+                self.$el.html(self.formaComprarCarritoTemplate({componentId: self.componentId, idCarrito: id}));
+                self.$el.slideDown("fast");
+            });
+        },
+        
+        _renderCompraFinalizada: function() {
+            var self = this;
+            this.$el.slideUp("fast", function() {
+                self.$el.html(self.compraFinalizadaTemplate({componentId: self.componentId}));
                 self.$el.slideDown("fast");
             });
         }

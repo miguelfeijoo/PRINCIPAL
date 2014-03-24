@@ -50,29 +50,50 @@
 <script type="text/template" id="formaComprarCarrito">
     <div class="form-group">
         <form role="form" id="<%= componentId %>-formaComprarCarrito">
-            <% if(carrito.id) {%>
-                <input type="hidden" name="id" value="<%= carrito.id %>"/>
+            <% if(idCarrito) {%>
+                <input type="hidden" name="id" value="<%= idCarrito %>"/>
             <% }%>
+        
             <div class="form-group" >
-                <label for="seleccionFormaPago">Seleccione su forma de pago:</label>
-                <select name="formaPago" placeholder="Seleccione su forma de pago"/>
+                <label for="seleccionFormaPago">Selecciona tu forma de pago:</label>
+                <select name="formaPago">
                     <option value="tarjetaCredito">Tarjeta de credito</option>
                     <option value="payPal">PayPal</option>
                 </select>
-               
-                <label for="valorFormaPago">Ingrese su número de tarjeta de crédito o cuenta de paypal:</label>
+        
+                <br><br>
+                
+                <label for="valorFormaPago">Ingresa tu numero de tarjeta de credito o cuenta de paypal:</label>
                 <input type="text" class="form-control" id="valorFormaPago" name="valorFormaPago" placeholder="NumeroTarjeta/Cuenta PayPal" value="NumeroTarjeta/Cuenta PayPal"/>	
             </div>
+    
             <div class="form-group" >
-                <label for="seleccionDirecciones">Seleccione la dirección de envío:</label>
-                <select name="direccion" placeholder="Seleccione la dirección de envío:"/>
-                    <option value="Calle 85 No 15-42, Bogotá, Colombia">Tarjeta de credito</option>
-                    <option value="254 Harbor Dr. KeyBiscayne, Fl, United States ">PayPal</option>
+                <label for="seleccionDirecciones">Selecciona la direccion de envio:</label>
+                <select name="direccion">
+                    <option value="Calle 85 No 15-42, Bogota, Colombia">Calle 85 No 15-42, Bogota, Colombia</option>
+                    <option value="254 Harbor Dr. KeyBiscayne, Fl, United States">254 Harbor Dr. KeyBiscayne, Fl, United States</option>
                 </select>
             </div>
             
             <div class="form-group" >
-                <a class="btn" onclick="Backbone.trigger('comprar-carrito',{id:<%= carrito.id%>})">Comprar carrito</a>                
+                <a class="btn" onclick="Backbone.trigger('finalizar-compra-carrito',{id:<%= idCarrito%>})">Terminar compra!</a>                
+            </div>
+        </form>
+    </div>
+</script> 
+
+<script type="text/template" id="compraFinalizada">
+    <div class="form-group">
+        <form role="form" id="<%= componentId %>-carritoForm">
+            <% if(idCarrito) {%>
+                <input type="hidden" name="id" value="<%= idCarrito %>"/>
+            <% }%>
+            <div class="form-group" >
+                <label for="name">Tu compra se realizo exitosamente!</label>
+                <br>
+                <label for="name">Deseas generar una factura?</label>
+                <a class="btn" onclick="Backbone.trigger('generar-factura',{id:<%= carrito.id%>})">Por supuesto</a>                
+                <a class="btn" onclick="Backbone.trigger('home',{id:<%= carrito.id%>})">Neh...</a>                
             </div>
         </form>
     </div>
