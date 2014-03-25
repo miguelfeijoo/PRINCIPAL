@@ -22,7 +22,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
         
         comprarCarrito: function (params)
         {
-            console.log('comprar carrito' + params.id);
+            console.log('Comprar carrito ' + params.id);
             
             var self = this; 
             
@@ -33,27 +33,27 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
-            }); */  
+            });   */
             
             this._renderFormaComprarCarrito(params.id); //<<--PARA PRUEBAS por lo que lo de arriba no está sirviendo
         },
         
         finalizarCompraCarrito: function (params)
         {
-            console.log('comprar carrito' + params.id);
+            console.log('Finalizar compra carrito ' + params.id);
             
             var self = this; 
             
             /*App.Delegate.CarritoDelegate.finalizarCompra(params.id,function(data)
             {
-                self._renderCompraFinalizada();
+                self._renderCompraFinalizada(params.id);
                 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
             });*/ 
             
-            this._renderCompraFinalizada(); //PARA PRUEBAS
+            this._renderCompraFinalizada(params.id); //PARA PRUEBAS
         },
         
         _renderFormaComprarCarrito: function(id) {
@@ -64,10 +64,10 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             });
         },
         
-        _renderCompraFinalizada: function() {
+        _renderCompraFinalizada: function(id) {
             var self = this;
             this.$el.slideUp("fast", function() {
-                self.$el.html(self.compraFinalizadaTemplate({componentId: self.componentId}));
+                self.$el.html(self.compraFinalizadaTemplate({componentId: self.componentId, idCarrito: id}));
                 self.$el.slideDown("fast");
             });
         }
