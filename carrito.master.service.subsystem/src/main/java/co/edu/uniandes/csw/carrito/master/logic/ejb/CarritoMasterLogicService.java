@@ -14,13 +14,13 @@ import javax.ws.rs.Path;
 @LocalBean
 public class CarritoMasterLogicService extends _CarritoMasterLogicService implements ICarritoMasterLogicService 
 {
-    @PUT
-    @Path("{id}/comprarcarrito")
-    public void comprarCarrito(Long id) 
+    public boolean comprarCarrito(Long id) 
     {
         double costo = calcularCostoCarrito(id);
         
         System.out.println("!!!");
+        
+        return true;
     }
         
     private double calcularCostoCarrito (Long id)
