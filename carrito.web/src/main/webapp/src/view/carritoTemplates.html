@@ -71,17 +71,17 @@
                 <label for="seleccionDirecciones">Selecciona la direccion de envio:</label>
                 <select name="direccion">
                     <% if(direcciones) 
- +                    {
- +                       _.each(direcciones, function(direccion) 
- +                       { %>
- +                            <option value="<%= direccion.direccion %>"><%= %></option>       
- +                       <%}
- +                    }
- +                    else 
- +                    {%>                           
- +                        <option value="Calle 85 No 15-42, Bogota, Colombia">Calle 85 No 15-42, Bogota, Colombia</option>
- +                        <option value="254 Harbor Dr. KeyBiscayne, Fl, United States">254 Harbor Dr. KeyBiscayne, Fl, United States</option>
- +                  <%}%>
+                      {
+                         _.each(direcciones, function(direccion) 
+                         { %>
+                              <option value="<%= direccion.direccion %>"><%= %></option>       
+                         <%}
+                      }
+                      else 
+                      {%>                           
+                          <option value="Calle 85 No 15-42, Bogota, Colombia">Calle 85 No 15-42, Bogota, Colombia</option>
+                          <option value="254 Harbor Dr. KeyBiscayne, Fl, United States">254 Harbor Dr. KeyBiscayne, Fl, United States</option>
+                    <%}%>
                 </select>
             </div>
             
