@@ -18,11 +18,29 @@ define(['delegate/_carritoDelegate'], function() {
             {
                 callbackError(data);
             },this));
+        }, 
+         cancelarCompraCarrito: function(id,callback,callbackError)
+        {
+	    console.log('#delegate# cancelarcompracarrito: '+id);
+            
+            $.ajax({
+                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+id+'/cancelarCompraCarrito',
+                type: 'PUT',
+                data: {},
+                contentType: 'application/json'
+            }).done(_.bind(function(data)
+            {
+                callback(data);
+                     
+            },this)).error(_.bind(function(data)
+            {
+                callbackError(data);
+            },this));
         },
         
         _obtenerFacturas: function(id,callback,callbackError)
         {
-            console.log('#delegate# comprarcarrito: '+id);
+            console.log('#delegate# darFacturas: '+id);
             $.ajax({
 	          url: '/factura.service.subsystem.web/webresources/Factura/darFacturas',
 	          type: 'GET',
@@ -37,7 +55,7 @@ define(['delegate/_carritoDelegate'], function() {
                 
         finalizarCompra: function(id,callback,callbackError)
         {
-	    console.log('#delegate# comprarcarrito: '+id);
+	    console.log('#delegate# finalizarCompra: '+id);
             $.ajax({
 	          url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+id+'/finalizarCompra',
 	          type: 'PUT',
