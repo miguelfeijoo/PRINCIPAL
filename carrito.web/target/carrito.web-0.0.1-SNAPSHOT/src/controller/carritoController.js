@@ -57,9 +57,9 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
 	    console.log('#delegate# comprarcarrito: '+id);
             
             $.ajax({
-                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+id+'/comprarCarrito',
+                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/comprarCarrito',
                 type: 'PUT',
-                data: {},
+                data: {}, 
                 contentType: 'application/json'
             }).done(_.bind(function(data)
             {

@@ -1,8 +1,5 @@
 package co.edu.uniandes.csw.carrito.master.service;
 
-import co.edu.uniandes.csw.carrito.master.logic.ejb.CarritoMasterLogicService;
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
@@ -15,18 +12,19 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CarritoMasterService extends _CarritoMasterService 
+public class CarritoMasterService extends _CarritoMasterService
 {
+
     @PUT
-    @Path("{id}/comprarCarrito")
-    public boolean comprarCarrito(@PathParam("id") Long id) 
+    @Path("/comprarCarrito")
+    public boolean comprarCarrito()
     {
-        return carritoLogicService.comprarCarrito(id);
+        return true;//return carritoLogicService.comprarCarrito(id);
     }
-    
+
     @PUT
     @Path("{id}/finalizarCompra")
-    public void finalizarCompra(@PathParam("id") Long id) 
+    public void finalizarCompra(@PathParam("id") Long id)
     {
         carritoLogicService.finalizarCompra(id);
     }

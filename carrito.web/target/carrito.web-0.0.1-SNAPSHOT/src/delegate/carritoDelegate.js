@@ -20,10 +20,6 @@ define(['delegate/_carritoDelegate'], function() {
             },this));
         }, 
         
-        prueba: function ()
-        {
-            
-        },
          cancelarCompraCarrito: function(id,callback,callbackError)
         {
 	    console.log('#delegate# cancelarcompracarrito: '+id);
