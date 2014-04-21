@@ -71,8 +71,9 @@ public class ItemPersistenceTest {
 	private void insertData() {
 		for(int i=0;i<3;i++){
 			ItemEntity entity=new ItemEntity();
-			entity.setCantidad(generateRandom(Integer.class));
 			entity.setName(generateRandom(String.class));
+			entity.setCantidad(generateRandom(Integer.class));
+			entity.setProductId(generateRandom(Long.class));
 			em.persist(entity);
 			data.add(entity);
 		}
@@ -81,8 +82,9 @@ public class ItemPersistenceTest {
 	@Test
 	public void createItemTest(){
 		ItemDTO dto=new ItemDTO();
-		dto.setCantidad(generateRandom(Integer.class));
 		dto.setName(generateRandom(String.class));
+		dto.setCantidad(generateRandom(Integer.class));
+		dto.setProductId(generateRandom(Long.class));
 		
 		
 		ItemDTO result=itemPersistence.createItem(dto);
@@ -91,8 +93,9 @@ public class ItemPersistenceTest {
 		
 		ItemEntity entity=em.find(ItemEntity.class, result.getId());
 		
-		Assert.assertEquals(dto.getCantidad(), entity.getCantidad());	
 		Assert.assertEquals(dto.getName(), entity.getName());	
+		Assert.assertEquals(dto.getCantidad(), entity.getCantidad());	
+		Assert.assertEquals(dto.getProductId(), entity.getProductId());	
 	}
 	
 	@Test
@@ -115,8 +118,9 @@ public class ItemPersistenceTest {
 		ItemEntity entity=data.get(0);
 		ItemDTO dto=itemPersistence.getItem(entity.getId());
         Assert.assertNotNull(dto);
-		Assert.assertEquals(entity.getCantidad(), dto.getCantidad());
 		Assert.assertEquals(entity.getName(), dto.getName());
+		Assert.assertEquals(entity.getCantidad(), dto.getCantidad());
+		Assert.assertEquals(entity.getProductId(), dto.getProductId());
         
 	}
 	
@@ -134,8 +138,9 @@ public class ItemPersistenceTest {
 		
 		ItemDTO dto=new ItemDTO();
 		dto.setId(entity.getId());
-		dto.setCantidad(generateRandom(Integer.class));
 		dto.setName(generateRandom(String.class));
+		dto.setCantidad(generateRandom(Integer.class));
+		dto.setProductId(generateRandom(Long.class));
 		
 		
 		itemPersistence.updateItem(dto);
@@ -143,8 +148,9 @@ public class ItemPersistenceTest {
 		
 		ItemEntity resp=em.find(ItemEntity.class, entity.getId());
 		
-		Assert.assertEquals(dto.getCantidad(), resp.getCantidad());	
 		Assert.assertEquals(dto.getName(), resp.getName());	
+		Assert.assertEquals(dto.getCantidad(), resp.getCantidad());	
+		Assert.assertEquals(dto.getProductId(), resp.getProductId());	
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

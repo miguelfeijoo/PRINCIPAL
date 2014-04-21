@@ -4,16 +4,18 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>cantidad</th>
 		 <th>name</th>
+		 <th>cantidad</th>
+		 <th>productId</th>
     <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% _.each(items, function(item) { %>
     <tr>
-		<td><%= htmlEncode(item.getDisplay('cantidad')) %></td>
 		<td><%= htmlEncode(item.getDisplay('name')) %></td>
+		<td><%= htmlEncode(item.getDisplay('cantidad')) %></td>
+		<td><%= htmlEncode(item.getDisplay('productId')) %></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-item-edit',{id:<%= item.id %>}); return false" >Edit</a> |
@@ -36,12 +38,22 @@
     <input type="hidden" name="id" value="<%= item.id %>"/>
     <% }%>
 		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= item.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
 		<label for="cantidad">cantidad</label>
     	<input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Enter value" value="<%= item.get('cantidad') %>"/>	
 		</div>
 		<div class="form-group" >
-		<label for="name">name</label>
-    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= item.get('name') %>"/>	
+ 
+			<label for="productidId">productId</label> 
+            <select class="form-control" id="productId" name="productId">
+			  <option value="">None</option>
+            <% product.each(function(productid) { %> 
+              <option value="<%=productid.get('id')%>" <% if(item.get('productId')==productid.get('id')) {%>selected<%}%> ><%=productid.get('name')%></option>
+            <% }); %>                
+            </select>  
 		</div>
     </form>
     </div>

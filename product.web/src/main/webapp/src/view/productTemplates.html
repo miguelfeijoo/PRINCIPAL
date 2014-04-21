@@ -1,0 +1,61 @@
+<script type="text/template" id="productList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+		 <th>description</th>
+		 <th>image</th>
+		 <th>price</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(products, function(product) { %>
+    <tr>
+		<td><%= htmlEncode(product.getDisplay('name')) %></td>
+		<td><%= htmlEncode(product.getDisplay('description')) %></td>
+		<td><%= htmlEncode(product.getDisplay('image')) %></td>
+		<td><%= htmlEncode(product.getDisplay('price')) %></td>
+    <td>
+    <% if(showEdit) {%>
+             <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+                <a onclick="Backbone.trigger('<%= componentId %>-product-delete',{id:<%= product.id %>}); return false" >Delete</a> 
+	<% } %> 
+         <a class="btn" onclick="Backbone.trigger('agregar-producto-al-carrito',{id:<%= producto.id%>, nombre:<% producto.getDisplay('name') %>})">Comprar carrito</a>
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="product">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-productForm">
+    <% if(product.id) {%>
+    <input type="hidden" name="id" value="<%= product.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= product.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="description">description</label>
+    	<input type="text" class="form-control" id="description" name="description" placeholder="Enter value" value="<%= product.get('description') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="image">image</label>
+    	<input type="text" class="form-control" id="image" name="image" placeholder="Enter value" value="<%= product.get('image') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="price">price</label>
+    	<input type="text" class="form-control" id="price" name="price" placeholder="Enter value" value="<%= product.get('price') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 

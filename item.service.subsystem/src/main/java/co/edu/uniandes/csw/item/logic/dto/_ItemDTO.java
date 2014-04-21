@@ -9,8 +9,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public abstract class _ItemDTO {
 
 	private Long id;
-	private Integer cantidad;
 	private String name;
+	private Integer cantidad;
+	private Long productId;
 
 	public Long getId() {
 		return id;
@@ -19,6 +20,13 @@ public abstract class _ItemDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public String getName() {
+		return name;
+	}
+ 
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Integer getCantidad() {
 		return cantidad;
 	}
@@ -26,12 +34,12 @@ public abstract class _ItemDTO {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-	public String getName() {
-		return name;
+	public Long getProductId() {
+		return productId;
 	}
  
-	public void setName(String name) {
-		this.name = name;
+	public void setProductId(Long productid) {
+		this.productId = productid;
 	}
 	
 }

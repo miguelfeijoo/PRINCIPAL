@@ -2,13 +2,20 @@ define([], function() {
     App.Model._ItemModel = Backbone.Model.extend({
         defaults: {
  
+		 'name' : ''
+ ,  
 		 'cantidad' : ''
  ,  
-		 'name' : ''
+		 'productId' : ''
         },
         initialize: function() {
         },
         getDisplay: function(name) {
+			 if(name=='productId'){  
+                 var value = App.Utils.getModelFromCache('productComponent',this.get('productId'));
+                 if(value) 
+                 return value.get('name');
+             }
          return this.get(name);
         }
     });

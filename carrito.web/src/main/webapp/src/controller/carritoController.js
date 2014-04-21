@@ -33,9 +33,9 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             
             var self = this; 
             
-            /*App.Delegate.CarritoDelegate.comprarCarrito(params.id,function(data)
+            self.comprarCarritoDelegate(params.id,function(data)
             {
-                App.Delegate.CarritoDelegate._obtenerFacturas(params.id,function(data)
+                self._obtenerFacturasDelegate(params.id,function(data)
                 {
                     self._renderFormaComprarCarrito(params.id, data);
                     
@@ -47,24 +47,59 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
-            });*/
-            
-            this._renderFormaComprarCarrito(params.id); //<<--PARA PRUEBAS por lo que lo de arriba no esta sirviendo
+            });
+                        
+            //this._renderFormaComprarCarrito(params.id); //<<--PARA PRUEBAS por lo que lo de arriba no esta sirviendo
         },
+        
+        comprarCarritoDelegate: function(id,callback,callbackError)
+        {
+	    console.log('#delegate# comprarcarrito: '+id);
+            
+            $.ajax({
+                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+id+'/comprarCarrito',
+                type: 'PUT',
+                data: {},
+                contentType: 'application/json'
+            }).done(_.bind(function(data)
+            {
+                callback(data);
+                     
+            },this)).error(_.bind(function(data)
+            {
+                callbackError(data);
+            },this));
+        }, 
+        
+        _obtenerFacturasDelegate: function(id,callback,callbackError)
+        {
+            console.log('#delegate# darFacturas: '+id);
+            $.ajax({
+	          url: '/factura.service.subsystem.web/webresources/Factura/darFacturas',
+	          type: 'GET',
+	          data: {},
+	          contentType: 'application/json'
+	      }).done(_.bind(function(data){
+	    	  callback(data);
+	      },this)).error(_.bind(function(data){
+	    	  callbackError(data);
+	      },this));
+        },
+        
         cancelarCompraCarrito: function (params)
         {
             console.log('Comprar carrito ' + params.id);
             
             var self = this; 
             
-            /*App.Delegate.CarritoDelegate.comprarCarrito(params.id,function(data)
+            App.Delegate.CarritoDelegate.comprarCarrito(params.id,function(data)
             {
                 self._renderFormaComprarCarrito(params.id);
                 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
-            });   */
+            });   
             
             this._renderCancelarCompraCarrito(params.id); //<<--PARA PRUEBAS por lo que lo de arriba no está sirviendo
         },

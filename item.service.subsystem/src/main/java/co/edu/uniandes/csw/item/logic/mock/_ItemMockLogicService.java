@@ -22,9 +22,9 @@ public abstract class _ItemMockLogicService implements _IItemLogicService {
 	}
 
 	public ItemDTO getItem(Long id){
-		for(ItemDTO d:data){
-			if(d.getId().equals(id)){
-				return d;
+		for(ItemDTO data1:data){
+			if(data1.getId().equals(id)){
+				return data1;
 			}
 		}
 		return null;
@@ -32,9 +32,9 @@ public abstract class _ItemMockLogicService implements _IItemLogicService {
 
 	public void deleteItem(Long id){
 	    ItemDTO delete=null;
-		for(ItemDTO d:data){
-			if(d.getId().equals(id)){
-				delete=d;
+		for(ItemDTO data1:data){
+			if(data1.getId().equals(id)){
+				delete=data1;
 			}
 		}
 		if(delete!=null){
@@ -44,9 +44,9 @@ public abstract class _ItemMockLogicService implements _IItemLogicService {
 
 	public void updateItem(ItemDTO item){
 	    ItemDTO delete=null;
-		for(ItemDTO d:data){
-			if(d.getId().equals(id)){
-				delete=d;
+		for(ItemDTO data1:data){
+			if(data1.getId().equals(id)){
+				delete=data1;
 			}
 		}
 		if(delete!=null){

@@ -66,8 +66,9 @@ public class ItemLogicServiceTest {
 	private void insertData() {
 		for(int i=0;i<3;i++){
 			ItemDTO pdto=new ItemDTO();
-			pdto.setCantidad(generateRandom(Integer.class));
 			pdto.setName(generateRandom(String.class));
+			pdto.setCantidad(generateRandom(Integer.class));
+			pdto.setProductId(generateRandom(Long.class));
 			pdto=itemPersistence.createItem(pdto);
 			data.add(pdto);
 		}
@@ -76,8 +77,9 @@ public class ItemLogicServiceTest {
 	@Test
 	public void createItemTest(){
 		ItemDTO ldto=new ItemDTO();
-		ldto.setCantidad(generateRandom(Integer.class));
 		ldto.setName(generateRandom(String.class));
+		ldto.setCantidad(generateRandom(Integer.class));
+		ldto.setProductId(generateRandom(Long.class));
 		
 		
 		ItemDTO result=itemLogicService.createItem(ldto);
@@ -86,8 +88,9 @@ public class ItemLogicServiceTest {
 		
 		ItemDTO pdto=itemPersistence.getItem(result.getId());
 		
-		Assert.assertEquals(ldto.getCantidad(), pdto.getCantidad());	
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
+		Assert.assertEquals(ldto.getCantidad(), pdto.getCantidad());	
+		Assert.assertEquals(ldto.getProductId(), pdto.getProductId());	
 	}
 	
 	@Test
@@ -110,8 +113,9 @@ public class ItemLogicServiceTest {
 		ItemDTO pdto=data.get(0);
 		ItemDTO ldto=itemLogicService.getItem(pdto.getId());
         Assert.assertNotNull(ldto);
-		Assert.assertEquals(pdto.getCantidad(), ldto.getCantidad());
 		Assert.assertEquals(pdto.getName(), ldto.getName());
+		Assert.assertEquals(pdto.getCantidad(), ldto.getCantidad());
+		Assert.assertEquals(pdto.getProductId(), ldto.getProductId());
         
 	}
 	
@@ -129,8 +133,9 @@ public class ItemLogicServiceTest {
 		
 		ItemDTO ldto=new ItemDTO();
 		ldto.setId(pdto.getId());
-		ldto.setCantidad(generateRandom(Integer.class));
 		ldto.setName(generateRandom(String.class));
+		ldto.setCantidad(generateRandom(Integer.class));
+		ldto.setProductId(generateRandom(Long.class));
 		
 		
 		itemLogicService.updateItem(ldto);
@@ -138,8 +143,9 @@ public class ItemLogicServiceTest {
 		
 		ItemDTO resp=itemPersistence.getItem(pdto.getId());
 		
-		Assert.assertEquals(ldto.getCantidad(), resp.getCantidad());	
 		Assert.assertEquals(ldto.getName(), resp.getName());	
+		Assert.assertEquals(ldto.getCantidad(), resp.getCantidad());	
+		Assert.assertEquals(ldto.getProductId(), resp.getProductId());	
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

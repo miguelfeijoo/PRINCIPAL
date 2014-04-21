@@ -40,7 +40,14 @@
 		<dependency>
             <groupId>co.edu.uniandes.csw.spl</groupId>
             <artifactId>common.web</artifactId>
-            <version>1.1.1</version>
+            <version>1.1.2</version>
+            <type>war</type>
+        </dependency>
+		 
+		<dependency>
+            <groupId>co.edu.uniandes.csw.spl</groupId>
+            <artifactId>product.web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
  
