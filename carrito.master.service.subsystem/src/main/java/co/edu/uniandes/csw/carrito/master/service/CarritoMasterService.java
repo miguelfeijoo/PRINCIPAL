@@ -16,12 +16,10 @@ public class CarritoMasterService extends _CarritoMasterService
 {
 
     @PUT
-    @Path("/comprarCarrito")
-    public boolean comprarCarrito()
-    {
-        System.out.println("!!!"); 
-        
-        return true;//return carritoLogicService.comprarCarrito(id);
+    @Path("{id}/comprarcarrito")
+    public boolean comprarCarrito(@PathParam("id") Long id)
+    {   
+        return carritoLogicService.comprarCarrito(id);
     }
 
     @PUT
