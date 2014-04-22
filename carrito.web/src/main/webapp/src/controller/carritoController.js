@@ -59,7 +59,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             $.ajax({
                 url: '/carrito.master.service.subsystem/webresources/CarritoMaster/comprarCarrito',
                 type: 'PUT',
-                data: {}, 
+                data: {},  
                 contentType: 'application/json'
             }).done(_.bind(function(data)
             {

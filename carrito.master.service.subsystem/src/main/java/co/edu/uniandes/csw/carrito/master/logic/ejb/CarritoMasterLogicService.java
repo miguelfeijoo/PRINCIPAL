@@ -16,10 +16,10 @@ public class CarritoMasterLogicService extends _CarritoMasterLogicService implem
 {
     public boolean comprarCarrito(Long id) 
     {
+        System.out.println("!!!"); 
+
         double costo = calcularCostoCarrito(id);
-        
-        System.out.println("!!!");
-        
+                
         return true;
     }
         

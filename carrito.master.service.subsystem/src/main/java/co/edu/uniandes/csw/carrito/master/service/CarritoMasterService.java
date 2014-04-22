@@ -19,6 +19,8 @@ public class CarritoMasterService extends _CarritoMasterService
     @Path("/comprarCarrito")
     public boolean comprarCarrito()
     {
+        System.out.println("!!!"); 
+        
         return true;//return carritoLogicService.comprarCarrito(id);
     }
 
