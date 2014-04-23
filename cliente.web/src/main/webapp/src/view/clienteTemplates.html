@@ -64,7 +64,9 @@
              <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Enter value" value=""/>	
              
              <label for="contrasenia">Contraseña</label>
-             <input type="text" class="form-control" id="username" name="username" placeholder="Enter value" value=""/>
+             <input type="text" class="form-control" id="contrasenia" name="contrasenia" placeholder="Enter value" value=""/>
+             
+             <a class="btn" onclick="Backbone.trigger('finalizarLogin',{id:<%= idCarrito%>})">Login o registrarse</a>
         </div>
     </form>
     </div>

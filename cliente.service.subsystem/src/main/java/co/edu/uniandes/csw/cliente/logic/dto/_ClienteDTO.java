@@ -12,6 +12,15 @@ public abstract class _ClienteDTO {
 	private String nombre;
 	private String documento;
 	private String name;
+        private String contrasenia;
+        
+        public String getContrasenia() {
+		return contrasenia;
+	}
+ 
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
 
 	public Long getId() {
 		return id;

@@ -15,6 +15,7 @@ public abstract class _ClienteConverter {
 			ClienteDTO dto = new ClienteDTO();
 				dto.setId(entity.getId());
 				dto.setNombre(entity.getNombre());
+                                dto.setContrasenia(entity.getContrasenia());
 				dto.setDocumento(entity.getDocumento());
 				dto.setName(entity.getName());
 			return dto;
@@ -28,6 +29,7 @@ public abstract class _ClienteConverter {
 			ClienteEntity entity=new ClienteEntity();
 			entity.setId(dto.getId());
 			entity.setNombre(dto.getNombre());
+                        entity.setContrasenia(dto.getContrasenia());
 			entity.setDocumento(dto.getDocumento());
 			entity.setName(dto.getName());
 			return entity;
