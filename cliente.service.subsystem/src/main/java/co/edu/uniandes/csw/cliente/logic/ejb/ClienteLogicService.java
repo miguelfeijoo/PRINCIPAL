@@ -47,8 +47,11 @@ public class ClienteLogicService extends _ClienteLogicService implements IClient
         else
         {
             //Crear un nuevo usuario 
-            
-            
+            cliente = new ClienteDTO();
+            cliente.setName(usuario);
+            cliente.setContrasenia(contrasenia);
+  
+            persistance.createCliente(cliente);
             
             return 2;
         }    

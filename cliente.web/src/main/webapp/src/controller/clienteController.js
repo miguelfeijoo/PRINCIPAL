@@ -24,8 +24,21 @@ define(['controller/_clienteController','delegate/clienteDelegate'], function() 
             
             var self = this; 
             
-            self.loginDelegate(params.usuario, params.contrasenia,function(data)
-            {                
+            self.loginDelegate(params.usuario, params.contrasenia,function(respuesta)
+            {          
+                if (respuesta == 0)
+                {
+                    alert('Contraseña incorrecta');
+                }
+                else if(respuesta == 1)
+                {
+                    alert('Bienvenido otra vez!');
+                }
+                else if(respuesta == 2)
+                {
+                    alert('Bienvenido nuevo usuario');
+                }
+                
                 Backbone.trigger('comprar-carrito', params.idCarrito);
                 
             },function(data)
