@@ -52,3 +52,20 @@
     </form>
     </div>
 </script> 
+
+<script type="text/template" id="registroUsuario">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-registroUsuario">
+    <% if(cliente.id) {%> 
+    <input type="hidden" name="id" value="<%= cliente.id %>"/>
+    <% }%>
+        <div class="form-group" >
+             <label for="usuario">Nombre de Usuario</label>
+             <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Enter value" value=""/>	
+             
+             <label for="contrasenia">Contraseña</label>
+             <input type="text" class="form-control" id="username" name="username" placeholder="Enter value" value=""/>
+        </div>
+    </form>
+    </div>
+</script> 

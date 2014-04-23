@@ -10,7 +10,7 @@ define(['controller/_productController','delegate/productDelegate'], function() 
             Backbone.on('agregar-producto-al-carrito',function(params)
             {
                 self.agregarProductoAlCarrito(params);
-            });
+            }); 
         },
         
         agregarProductoAlCarrito: function (params)

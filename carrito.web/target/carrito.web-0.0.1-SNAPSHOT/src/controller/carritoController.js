@@ -47,9 +47,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
-            });
-                        
-            //this._renderFormaComprarCarrito(params.id); //<<--PARA PRUEBAS por lo que lo de arriba no esta sirviendo
+            });                        
         },
         
         comprarCarritoDelegate: function(id,callback,callbackError)
