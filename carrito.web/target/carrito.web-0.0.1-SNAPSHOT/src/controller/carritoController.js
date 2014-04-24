@@ -9,7 +9,18 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             
             this.formaComprarCarritoTemplate = _.template($('#formaComprarCarrito').html());
             this.compraFinalizadaTemplate = _.template($('#compraFinalizada').html());
+            this.loginTemplate = _.template($('#registroUsuario').html());
             this.cancelarCompraCarrito = _.template($('#cancelarCompraCarrito').html());
+            
+            Backbone.on('pre-login',function(params)
+            {   
+                self._renderLogin(params.idCarrito);
+            });
+            
+            Backbone.on('login',function(params)
+            {
+                self.login($('#usuario').val(), $('#contrasenia').val(), params);
+            });
 
             Backbone.on('comprar-carrito',function(params)
             {
@@ -27,26 +38,86 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             });
         },
         
-        comprarCarrito: function (params)
+        _renderLogin: function(idCarrito) 
         {
-            console.log('Comprar carrito ' + params.id);
+            console.log(idCarrito);
+            
+            var self = this;
+            this.$el.slideUp("fast", function()
+            {
+                self.$el.html(self.loginTemplate({componentId: self.componentId, idCarrito: idCarrito}));
+                self.$el.slideDown("fast"); 
+            });
+        },
+        
+        login: function (usuario, contrasenia, params)
+        {
+            console.log('login ' + params.idCarrito);
             
             var self = this; 
             
-            self.comprarCarritoDelegate(params.id,function(data)
-            {
-                self._obtenerFacturasDelegate(params.id,function(data)
+            self.loginDelegate(usuario, contrasenia, function(respuesta)
+            {          
+                if (respuesta == 0)
                 {
-                    self._renderFormaComprarCarrito(params.id, data);
-                    
-                },function(data)
+                    alert('Contrasenia incorrecta');
+                }
+                else if(respuesta == 1)
                 {
-                    Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
-                });
+                    alert('Bienvenido otra vez!');
+                }
+                else if(respuesta == 2)
+                {
+                    alert('Bienvenido nuevo usuario');
+                }
+                
+                Backbone.trigger('comprar-carrito', params.idCarrito);
                 
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: params.id, data: data, error: 'Error haciendo la compra'});
+            });                        
+        },
+        
+        loginDelegate: function(usuario, contrasenia, callback,callbackError)
+        {
+	    console.log('#delegate# login: '+ usuario);
+            
+            $.ajax({
+                url: '/cliente.service.subsystem.web/webresources/Cliente/login',
+                type: 'PUT',
+                data: {usuario:usuario, contrasenia: contrasenia},  
+                contentType: 'application/json'
+            }).done(_.bind(function(data)
+            {
+                callback(data);
+                     
+            },this)).error(_.bind(function(data)
+            {
+                callbackError(data);
+            },this));
+        }, 
+        
+        comprarCarrito: function (id)
+        {
+            console.log('Comprar carrito ' + id);
+            
+            var self = this; 
+            
+            self.comprarCarritoDelegate(id,function(data)
+            {
+                self._obtenerFacturasDelegate(id,function(data)
+                {
+                    self._renderFormaComprarCarrito(id, data);
+                    
+                },function(data)
+                {
+                    Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: id, data: data, error: 'Error haciendo la compra'});
+                });
+                
+            },function(data)
+            {
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'comprar-carrito', view: self, id: id, data: data, error: 'Error haciendo la compra'});
             });                        
         },
         

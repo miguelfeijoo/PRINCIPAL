@@ -16,9 +16,10 @@ import javax.ws.rs.core.MediaType;
 public class ClienteService extends _ClienteService 
 {
     @PUT
-    @Path("/report")
+    @Path("/login")
     public int login(String usuario, String contrasenia)
     {
-        return clienteLogicService.login(usuario, contrasenia);
+        return 2;
+        //return clienteLogicService.login(usuario, contrasenia);
     }
 }

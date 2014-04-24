@@ -24,7 +24,7 @@
                             <a onclick="Backbone.trigger('<%= componentId %>-carrito-delete',{id:<%= carrito.id %>}); return false" >Delete</a> 
                         <%
                         } %>    
-                        <a class="btn" onclick="Backbone.trigger('login',{idCarrito:<%= carrito.id%>})">Comprar carrito</a>
+                        <a class="btn" onclick="Backbone.trigger('pre-login',{idCarrito:<%= carrito.id%>})">Comprar carrito</a>
                     </td>
                 </tr>
                 <% }); %>
@@ -130,3 +130,25 @@
         </form>
     </div>
 </script>
+
+<script type="text/template" id="registroUsuario">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-registroUsuario">
+    <% if(carrito.id) {%> 
+    <input type="hidden" name="id" value="<%= carrito.id %>"/>
+    <% }%>
+        <div class="form-group" >
+             Es hora que ingreses con tus datos, si no tienes una cuenta aun crearemos una por ti
+             automaticamente, asi de facil.
+        
+             <label for="usuario">Nombre de Usuario</label>
+             <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Enter value" value=""/>	
+             
+             <label for="contrasenia">Contrasenia</label>
+             <input type="text" class="form-control" id="contrasenia" name="contrasenia" placeholder="Enter value" value=""/>
+             
+             <a class="btn" onclick="Backbone.trigger('login',{idCarrito:<%= idCarrito%>})">Login o registrarse</a>
+        </div>
+    </form>
+    </div>
+</script> 

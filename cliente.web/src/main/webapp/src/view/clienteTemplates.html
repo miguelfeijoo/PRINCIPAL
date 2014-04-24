@@ -52,22 +52,3 @@
     </form>
     </div>
 </script> 
-
-<script type="text/template" id="registroUsuario">
-    <div class="form-group">
-    <form role="form" id="<%= componentId %>-registroUsuario">
-    <% if(cliente.id) {%> 
-    <input type="hidden" name="id" value="<%= cliente.id %>"/>
-    <% }%>
-        <div class="form-group" >
-             <label for="usuario">Nombre de Usuario</label>
-             <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Enter value" value=""/>	
-             
-             <label for="contrasenia">Contraseña</label>
-             <input type="text" class="form-control" id="contrasenia" name="contrasenia" placeholder="Enter value" value=""/>
-             
-             <a class="btn" onclick="Backbone.trigger('finalizarLogin',{id:<%= idCarrito%>})">Login o registrarse</a>
-        </div>
-    </form>
-    </div>
-</script> 
