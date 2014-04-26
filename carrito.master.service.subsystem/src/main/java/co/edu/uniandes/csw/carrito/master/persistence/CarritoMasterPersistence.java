@@ -9,6 +9,7 @@ import javax.enterprise.inject.Default;
 @Default
 @Stateless 
 @LocalBean
-public class CarritoMasterPersistence extends _CarritoMasterPersistence  implements ICarritoMasterPersistence {
+public class CarritoMasterPersistence extends _CarritoMasterPersistence  implements ICarritoMasterPersistence
+{
 
 }

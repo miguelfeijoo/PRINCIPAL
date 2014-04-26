@@ -19,8 +19,7 @@ public class CarritoMasterService extends _CarritoMasterService
     @Path("{id}/comprarcarrito")
     public boolean comprarCarrito(@PathParam("id") Long id)
     {   
-        return true;
-        //return carritoLogicService.comprarCarrito(id);
+        return carritoLogicService.comprarCarrito(id);
     }
 
     @PUT

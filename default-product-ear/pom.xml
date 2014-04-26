@@ -162,7 +162,7 @@
             <type>war</type>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>co.edu.uniandes.csw.spl</groupId>
             <artifactId>product.web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>

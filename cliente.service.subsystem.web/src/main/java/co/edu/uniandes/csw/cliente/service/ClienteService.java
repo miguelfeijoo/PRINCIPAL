@@ -18,8 +18,7 @@ public class ClienteService extends _ClienteService
     @PUT
     @Path("/login")
     public int login(String usuario, String contrasenia)
-    {
-        return 2;
-        //return clienteLogicService.login(usuario, contrasenia);
+    {      
+        return clienteLogicService.login(usuario, contrasenia);
     }
 }

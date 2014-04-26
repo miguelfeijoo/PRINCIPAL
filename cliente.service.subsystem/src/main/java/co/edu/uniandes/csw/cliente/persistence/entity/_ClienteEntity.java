@@ -17,8 +17,7 @@ public abstract class _ClienteEntity {
 	private Long id;
 	private String nombre;
 	private String documento;
-	private String name;
-        
+	private String name;     
         private String contrasenia;
         
         public String getContrasenia() {
