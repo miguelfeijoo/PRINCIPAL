@@ -85,7 +85,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             
             $.ajax({
                 url: '/cliente.service.subsystem.web/webresources/Cliente/login',
-                type: 'PUT',
+                type: 'POST',
                 data: {usuario:usuario, contrasenia: contrasenia},  
                 contentType: 'application/json'
             }).done(_.bind(function(data)

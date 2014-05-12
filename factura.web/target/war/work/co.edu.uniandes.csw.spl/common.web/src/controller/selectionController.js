@@ -52,20 +52,20 @@
             
         },
         addSelectionList: function(params) {
-            var model = $('#addForm').serializeObject();
+            var selectedIds = $('#addForm').serializeObject();
             var resp = new Array();
             
             _.each(this.list.models,function(m){
-                _.each(model,function(id){
-                    if(m.id===id){
-                        resp.push(m);
+                _.each(selectedIds,function(id){
+                    if(m.id == id){
+                        resp.push(m.attributes);
                     }
                 });
             });
             
-            Backbone.trigger('post-selection', {'model': resp});
+            Backbone.trigger('post-selection',  resp);
             $('#bgmodal').remove();
-            $('#bgtransparent').remove();
+            $('#bgtransparent').remove(); 
         },
         cancelSelectionList: function(params) {
             $('#bgmodal').remove();
