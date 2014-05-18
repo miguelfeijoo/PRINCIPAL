@@ -10,12 +10,9 @@
     	  <module>../componenteventasenlinea.web</module>
     	  <module>../componenteventasenlinea.service.subsystem</module>
 		  <module>../componenteventasenlinea.service.subsystem.web</module>
-    	  <module>../product.web</module>
-    	  <module>../product.service.subsystem</module>
-		  <module>../product.service.subsystem.web</module>       
-          <module>../producto.web</module>
+    	  <module>../producto.web</module>
     	  <module>../producto.service.subsystem</module>
-		  <module>../producto.service.subsystem.web</module>
+		  <module>../producto.service.subsystem.web</module>       
                   
     	  <module>../carrito.web</module>
     	  <module>../carrito.service.subsystem</module>

@@ -19,10 +19,10 @@
                         <% if(showDelete) {%>
                             <a onclick="Backbone.trigger('<%= componentId %>-producto-delete',{id:<%= producto.id %>}); return false" >Delete</a> 
                             <% } %>                   
-                        <a class="btn" onclick="Backbone.trigger('agregar-producto-al-carrito',{id:<%= producto.id%>, nombre:<% producto.getDisplay('name') %>})">Comprar carrito</a>
+                        <a class="btn" onclick="Backbone.trigger('agregar-producto-al-carrito',{id:<%= producto.id%>, nombre:<% producto.getDisplay('name') %>})">Agregar al carrito</a>
                         </td>
                         </tr>
-                        <% }); %>
+                        <% }); %> 
                     </tbody>
                 </table>
             </div>

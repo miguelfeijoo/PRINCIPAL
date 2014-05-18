@@ -6,7 +6,7 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
   
             var self = this;
             //this.selection = App.Controller.SelectionController ({});
-            
+             
             this.formaComprarCarritoTemplate = _.template($('#formaComprarCarrito').html());
             this.compraFinalizadaTemplate = _.template($('#compraFinalizada').html());
             this.loginTemplate = _.template($('#registroUsuario').html());

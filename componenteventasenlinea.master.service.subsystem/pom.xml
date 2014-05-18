@@ -58,18 +58,7 @@
             <artifactId>cliente.web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
-        </dependency>      
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>producto.service.subsystem</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw.spl</groupId>
-            <artifactId>producto.web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>      
+        </dependency>            
         <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
             <artifactId>factura.service.subsystem</artifactId>
@@ -108,12 +97,12 @@
         
         <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>product.service.subsystem</artifactId>
+            <artifactId>producto.service.subsystem</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>co.edu.uniandes.csw.spl</groupId>
-            <artifactId>product.web</artifactId>
+            <artifactId>producto.web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
