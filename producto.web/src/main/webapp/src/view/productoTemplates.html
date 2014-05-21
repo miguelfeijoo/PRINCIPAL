@@ -6,7 +6,7 @@
                     <tr>
                     <th>name</th>
                     <th>Actions</th>
-                    </tr>
+                    </tr>  
                     </thead>
                     <tbody>
                     <% _.each(productos, function(producto) { %>
@@ -19,7 +19,7 @@
                         <% if(showDelete) {%>
                             <a onclick="Backbone.trigger('<%= componentId %>-producto-delete',{id:<%= producto.id %>}); return false" >Delete</a> 
                             <% } %>                   
-                        <a class="btn" onclick="Backbone.trigger('agregar-producto-al-carrito',{id:<%= producto.id%>, nombre:<% producto.getDisplay('name') %>})">Agregar al carrito</a>
+                        <a class="btn" onclick="Backbone.trigger('agregar-producto-al-carrito',{id:<%= producto.id%>})"> Agregar al carrito</a>
                         </td>
                         </tr>
                         <% }); %> 
@@ -37,6 +37,26 @@
             <div class="form-group" >
             <label for="name">name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= producto.get('name') %>"/>	
+            </div>
+            </form>
+            </div>
+</script> 
+
+<script type="text/template" id="nuevoItem">
+            <div class="form-group">
+            <form role="form" id="<%= componentId %>-productoForm">
+            <% if(producto.id) {%>
+                <input type="hidden" name="id" value="<%= producto.id %>"/>
+                <% }%>
+            <div class="form-group" >
+            <label for="numeroUnidades">Numero de unidades:</label>
+
+            <label for="numeroUnidades">Numero de unidades:</label>
+            <input type="text" class="form-control" id="numUnidades" name="numUnidades" placeholder="Enter value" value="<%= 1 %>"/>	
+            
+            <a class="btn" onclick="Backbone.trigger('finalizar-agregar-producto-al-carrito',{idProducto:<%= idProducto%>})"> Agregar al carrito</a>
+
+            
             </div>
             </form>
             </div>

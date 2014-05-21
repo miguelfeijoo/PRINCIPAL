@@ -3,16 +3,16 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
         
         postInit: function (options)
         {                        
-  
             var self = this;
             //this.selection = App.Controller.SelectionController ({});
              
             this.formaComprarCarritoTemplate = _.template($('#formaComprarCarrito').html());
             this.compraFinalizadaTemplate = _.template($('#compraFinalizada').html());
             this.loginTemplate = _.template($('#registroUsuario').html());
+            this.verCarritoTemplate = _.template($('#verCarrito').html());
             this.cancelarCompraCarrito = _.template($('#cancelarCompraCarrito').html());
             
-            Backbone.on('pre-login',function(params)
+            Backbone.on('pre-login',function(params) 
             {   
                 self._renderLogin(params.idCarrito);
             });
@@ -36,6 +36,11 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
             {
                 self.cancelarCompraCarrito(params);
             });
+            
+            Backbone.on('ver-carrito',function(params)
+            {
+                self.verCarrito(params);
+            });
         },
         
         _renderLogin: function(idCarrito) 
@@ -48,6 +53,15 @@ define(['controller/_carritoController','delegate/carritoDelegate'], function() 
                 self.$el.html(self.loginTemplate({componentId: self.componentId, idCarrito: idCarrito}));
                 self.$el.slideDown("fast"); 
             });
+        },
+        
+        verCarrito: function (params)
+        {
+            console.log('verCarrito ' + params.idCarrito);
+            
+            var self = this; 
+            
+            
         },
         
         login: function (usuario, contrasenia, params)

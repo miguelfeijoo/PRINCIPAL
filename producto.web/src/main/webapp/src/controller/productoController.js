@@ -5,21 +5,33 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
         {                        
             var self = this;
             
-            //this.redirect = _.template($('#redirectCarrito').html());
+            this.nuevoItem = _.template($('#nuevoItem').html());
 
             Backbone.on('agregar-producto-al-carrito',function(params)
             {
                 self.agregarProductoAlCarrito(params);
             });
+            
+            Backbone.on('finalizar-agregar-producto-al-carrito',function(params)
+            {
+                self.finalizarAgregarProductoAlCarrito($('#numUnidades').val(), params);
+            });
         }, 
-         
+        
         agregarProductoAlCarrito: function (params)
+        {
+            console.log('Agregar producto ' + params.id);
+            
+            this._renderNuevoItem(params.id,null);         
+        },
+         
+        finalizarAgregarProductoAlCarrito: function (numeroUnidades, params)
         {
             console.log('Agregar producto ' + params.id);
             
             var self = this; 
             
-            self.agregarProductoAlCarritoDelegate(params.id,function(data)
+            self.agregarProductoAlCarritoDelegate(params.idProducto, numeroUnidades,function(data)
             {
                 //Se agrego el producto al carrito
                 
@@ -29,12 +41,12 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
             });            
         },
         
-        agregarProductoAlCarritoDelegate: function(id,callback,callbackError)
+        agregarProductoAlCarritoDelegate: function(idProducto, numeroUnidades,callback,callbackError)
         {
-	    console.log('#delegate# agregar producto: '+id);
+	    console.log('#delegate# agregar producto: '+idProducto);
             
             $.ajax({
-                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+id+'/comprarCarrito',
+                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+idProducto+'/'+numeroUnidades+'/agregarAlCarrito',
                 type: 'PUT',
                 data: {},
                 contentType: 'application/json'
@@ -47,6 +59,16 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
                 callbackError(data);
             },this));
         }, 
+        
+        _renderNuevoItem: function(idProducto, nombreProducto) 
+        {
+            var self = this;
+            this.$el.slideUp("fast", function() 
+            {
+                self.$el.html(self.nuevoItem({componentId: self.componentId, idProducto: idProducto, nombreProducto: 'nada'}));
+                self.$el.slideDown("fast");
+            });
+        }
     });
     return App.Controller.ProductoController;
 }); 

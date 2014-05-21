@@ -96,7 +96,8 @@ define(['model/carritoModel'], function(carritoModel) {
                 }
             }
         },
-        destroy: function(params) {
+        destroy: function(params) 
+        {
             var id = params.id;
             var self = this;
             if (App.Utils.eventExists(this.componentId + '-' +'instead-carrito-delete')) {
@@ -119,7 +120,8 @@ define(['model/carritoModel'], function(carritoModel) {
                 });
             }
         },
-        save: function() {
+        save: function()
+        {
             var self = this;
             var model = $('#' + this.componentId + '-carritoForm').serializeObject();
             if (App.Utils.eventExists(this.componentId + '-' +'instead-carrito-save')) {
@@ -128,24 +130,26 @@ define(['model/carritoModel'], function(carritoModel) {
                 Backbone.trigger(this.componentId + '-' + 'pre-carrito-save', {view: this, model : model});
                 this.currentCarritoModel.set(model);
                 this.currentCarritoModel.save({},
-                        {
-                            success: function(model) {
-                                Backbone.trigger(self.componentId + '-' + 'post-carrito-save', {model: self.currentCarritoModel});
-                            },
-                            error: function(error) {
-                                Backbone.trigger(self.componentId + '-' + 'error', {event: 'carrito-save', view: self, error: error});
-                            }
-                        });
+                {
+                    success: function(model) {
+                        Backbone.trigger(self.componentId + '-' + 'post-carrito-save', {model: self.currentCarritoModel});
+                    },
+                    error: function(error) {
+                        Backbone.trigger(self.componentId + '-' + 'error', {event: 'carrito-save', view: self, error: error});
+                    }
+                });
             }
         },
-        _renderList: function() {
+        _renderList: function() 
+        {
             var self = this;
             this.$el.slideUp("fast", function() {
                 self.$el.html(self.listTemplate({carritos: self.carritoModelList.models, componentId: self.componentId, showEdit : self.showEdit , showDelete : self.showDelete}));
                 self.$el.slideDown("fast");
             });
         },
-        _renderEdit: function() {
+        _renderEdit: function()
+        {
             var self = this;
             this.$el.slideUp("fast", function() {
                 self.$el.html(self.editTemplate({carrito: self.currentCarritoModel, componentId: self.componentId , showEdit : self.showEdit , showDelete : self.showDelete

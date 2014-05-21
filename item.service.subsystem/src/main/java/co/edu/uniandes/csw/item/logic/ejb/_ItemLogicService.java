@@ -5,6 +5,7 @@ import javax.inject.Inject;
 
 import co.edu.uniandes.csw.item.logic.dto.ItemDTO;
 import co.edu.uniandes.csw.item.logic.api._IItemLogicService;
+import co.edu.uniandes.csw.item.persistence.SPS;
 import co.edu.uniandes.csw.item.persistence.api.IItemPersistence;
 
 public abstract class _ItemLogicService implements _IItemLogicService {
@@ -17,7 +18,7 @@ public abstract class _ItemLogicService implements _IItemLogicService {
     }
 
 	public List<ItemDTO> getItems(){
-		return persistance.getItems(); 
+		return SPS.i().items;
 	}
 
 	public ItemDTO getItem(Long id){

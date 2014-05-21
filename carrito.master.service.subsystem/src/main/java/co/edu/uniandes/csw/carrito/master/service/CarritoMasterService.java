@@ -1,5 +1,7 @@
 package co.edu.uniandes.csw.carrito.master.service;
 
+import co.edu.uniandes.csw.carrito.master.persistence.SPS;
+import co.edu.uniandes.csw.item.logic.dto.ItemDTO;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
@@ -27,5 +29,15 @@ public class CarritoMasterService extends _CarritoMasterService
     public void finalizarCompra(@PathParam("id") Long id)
     {
         carritoLogicService.finalizarCompra(id);
+    }
+    
+    @PUT
+    @Path("{idProducto}/{numeroUnidades}/agregarAlCarrito")
+    public void agregarAlCarrito(@PathParam("idProducto") Long idProducto, @PathParam("numeroUnidades") int numUnidades)
+    {
+        ItemDTO item = new ItemDTO();
+        item.setCantidad(numUnidades);
+        item.setProductId(idProducto);
+        //SP.i().items.add(item);
     }
 }

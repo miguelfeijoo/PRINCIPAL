@@ -15,12 +15,14 @@
                     <td>
                         <% if(showEdit) 
                         {%>
-                            <a onclick="Backbone.trigger('<%= componentId %>-carrito-edit',{id:<%= carrito.id %>}); return false" >Edit</a> |
+                            <a href="carrito.jsp">Ver Carrito</a>
+                            <a onclick="Backbone.trigger('ver-carrito',{id:<%= carrito.id %>}); return false" >Ver Carrito</a> |
                         <% 
                         } %> 
                         <% 
                         if(showDelete) 
                         {%>
+          
                             <a onclick="Backbone.trigger('<%= componentId %>-carrito-delete',{id:<%= carrito.id %>}); return false" >Delete</a> 
                         <%
                         } %>    
@@ -150,5 +152,38 @@
              <a class="btn" onclick="Backbone.trigger('login',{idCarrito:<%= idCarrito%>})">Login o registrarse</a>
         </div>
     </form>
+    </div>
+</script> 
+
+<script type="text/template" id="verCarrito">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+		 <th>cantidad</th>
+		 <th>productId</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(items, function(item) { %>
+    <tr>
+		<td><%= htmlEncode(item.getDisplay('name')) %></td>
+		<td><%= htmlEncode(item.getDisplay('cantidad')) %></td>
+		<td><%= htmlEncode(item.getDisplay('productId')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-item-edit',{id:<%= item.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-item-delete',{id:<%= item.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
     </div>
 </script> 
