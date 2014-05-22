@@ -6,6 +6,7 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
             var self = this;
             
             this.nuevoItem = _.template($('#nuevoItem').html());
+            this.productoAgregado = _.template($('#productoAgregado').html());
 
             Backbone.on('agregar-producto-al-carrito',function(params)
             {
@@ -35,6 +36,7 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
             {
                 //Se agrego el producto al carrito
                 
+                self._renderAgregado();
             },function(data)
             {
                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'agregar-al-carrito', view: self, id: params.id, data: data, error: 'Error agregando producto'});
@@ -46,7 +48,7 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
 	    console.log('#delegate# agregar producto: '+idProducto);
             
             $.ajax({
-                url: '/carrito.master.service.subsystem/webresources/CarritoMaster/'+idProducto+'/'+numeroUnidades+'/agregarAlCarrito',
+                url: '/itemfactura.service.subsystem.web/webresources/ItemFactura/'+idProducto+'/'+numeroUnidades+'/agregarAlCarrito',
                 type: 'PUT',
                 data: {},
                 contentType: 'application/json'
@@ -66,6 +68,15 @@ define(['controller/_productoController','delegate/productoDelegate'], function(
             this.$el.slideUp("fast", function() 
             {
                 self.$el.html(self.nuevoItem({componentId: self.componentId, idProducto: idProducto, nombreProducto: 'nada'}));
+                self.$el.slideDown("fast");
+            });
+        },
+        _renderAgregado: function() 
+        {
+            var self = this;
+            this.$el.slideUp("fast", function() 
+            {
+                self.$el.html(self.productoAgregado({componentId: self.componentId}));
                 self.$el.slideDown("fast");
             });
         }

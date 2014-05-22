@@ -46,7 +46,7 @@
 		 
 		<dependency>
             <groupId>co.edu.uniandes.csw.spl</groupId>
-            <artifactId>product.web</artifactId>
+            <artifactId>producto.web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>

@@ -61,3 +61,21 @@
             </form>
             </div>
 </script> 
+
+<script type="text/template" id="productoAgregado">
+            <div class="form-group">
+            <form role="form" id="<%= componentId %>-productoForm">
+            <% if(producto.id) {%>
+                <input type="hidden" name="id" value="<%= producto.id %>"/>
+                <% }%>
+            <div class="form-group" >
+            
+            Felicidades, producto agregado...
+            
+            <a href="http://localhost:8080/producto.web">Volver al catalogo</a>
+            <a href="http://localhost:8080/carrito.web">Ir al carrito</a>
+            
+            </div>
+            </form>
+            </div>
+</script> 

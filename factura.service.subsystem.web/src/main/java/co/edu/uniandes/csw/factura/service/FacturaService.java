@@ -23,4 +23,6 @@ public class FacturaService extends _FacturaService
     {
         return facturaLogicService.getFacturas();
     }
+    
+    
 }
