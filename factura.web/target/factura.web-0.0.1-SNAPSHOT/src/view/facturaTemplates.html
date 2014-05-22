@@ -6,7 +6,8 @@
     <tr>
 		 <th>numeroFactura</th>
 		 <th>name</th>
-    <th>Actions</th>
+                 <th>Estado</th>
+                 <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
     <tr>
 		<td><%= htmlEncode(factura.getDisplay('numeroFactura')) %></td>
 		<td><%= htmlEncode(factura.getDisplay('name')) %></td>
+                <td><input type="button" class="btn btn-primary btn-xs" value = "Mostrar" name="buttonEstado" onclick="bob()" ></input></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-factura-edit',{id:<%= factura.id %>}); return false" >Edit</a> |
@@ -27,8 +29,9 @@
     </tbody>
     </table>
     </div>
+    <div  id="googleMap" style="width:800px;height:300px;"></div>
+    
 </script>
-
 <script type="text/template" id="factura">
     <div class="form-group">
     <form role="form" id="<%= componentId %>-facturaForm">
@@ -45,4 +48,24 @@
 		</div>
     </form>
     </div>
+    
 </script> 
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDMEiGnyv59DBZHyM2rEisQAftDJ5MF3uo&sensor=false"> 
+    </script>
+<script>
+    function maps()
+{
+var mapProp = {
+  center:new google.maps.LatLng(4.673184, -74.068156),
+  zoom:9,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+<script>
+        function bob()
+        {
+        alert("En Progreso");
+       }
+    </script>
